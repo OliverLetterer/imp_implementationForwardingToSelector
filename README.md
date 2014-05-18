@@ -29,7 +29,7 @@ Here is an example
 
 ``` objc
 IMP forwardingImplementation = imp_implementationForwardingToSelector(@selector(setCenter:), NO);
-class_addMethod([UIView class], @selector(thisSetCenterDoesNotExistYet:), forwardingImplementation, typeEndoding);
+class_addMethod([UIView class], @selector(thisSetCenterDoesNotExistYet:), forwardingImplementation, typeEncoding);
 ```
 
 and suddenly every instance of `UIView` responds to `-[UIView thisSetCenterDoesNotExistYet:]` and forwards this message to `-[UIView setCenter:]`. If you would like some more information about trampolines and maybe a blog post like `Writing custom trampolines for beginners and all the pitfalls`, hit me up on [Twitter](http://twitter.com/oletterer).
